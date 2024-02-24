@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget* parent)
     imshow("Display window", image);
     qDebug() << "test";
     qDebug() << "test2";
+    qDebug() << "test3";
 }
 
 MainWindow::~MainWindow()
