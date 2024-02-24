@@ -18,6 +18,8 @@ MainWindow::MainWindow(QWidget* parent)
     qDebug() << "test";
     qDebug() << "test2";
     qDebug() << "test3";
+    qDebug() << "test4";
+
 }
 
 MainWindow::~MainWindow()
