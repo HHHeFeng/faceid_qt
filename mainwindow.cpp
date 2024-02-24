@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget* parent)
     Mat image = imread("D:/image/test.jpg", 3);
     namedWindow("Display window", WINDOW_AUTOSIZE);
     imshow("Display window", image);
+    qDebug() << "test";
 }
 
 MainWindow::~MainWindow()
