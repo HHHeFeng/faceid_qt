@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget* parent)
     namedWindow("Display window", WINDOW_AUTOSIZE);
     imshow("Display window", image);
     qDebug() << "test";
+    qDebug() << "test2";
 }
 
 MainWindow::~MainWindow()
