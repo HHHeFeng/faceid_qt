@@ -13,7 +13,6 @@ public:
 protected:
     void run();
     // QMutex mutex;
-
 signals:
     void newImage(cv::Mat img, int num);
 

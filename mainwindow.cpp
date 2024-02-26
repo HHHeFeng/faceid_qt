@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include <QCloseEvent>
 #include <QMessageBox>
+
 using namespace cv;
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
