@@ -69,7 +69,6 @@ void MainWindow::recognizeImgShow()
 void MainWindow::on_pushButton_clicked()
 {
     threadCamera->start();
-    ui->lineEdit->setEnabled(true);
     ui->pushButton->setEnabled(false);
     ui->pushButton_2->setEnabled(true);
     ui->pushButton_5->setEnabled(true);
@@ -135,7 +134,6 @@ void MainWindow::on_pushButton_6_clicked()
 
 void MainWindow::on_pushButton_7_clicked()
 {
-    personNO_++;
     on_pushButton_2_clicked();
     ui->pushButton_3->setEnabled(true);
     ui->pushButton_7->setEnabled(false);
