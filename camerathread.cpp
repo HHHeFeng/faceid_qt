@@ -8,7 +8,6 @@
 using namespace cv;
 cameraThread::cameraThread()
 {
-
     if (!faceCascade.load(path.toStdString())) {
         qDebug() << "Error loading face cascade";
     }

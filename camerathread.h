@@ -4,6 +4,7 @@
 #include <QThread>
 #include <atomic>
 #include <opencv2/face.hpp>
+
 class cameraThread : public QThread {
     Q_OBJECT
 public:
