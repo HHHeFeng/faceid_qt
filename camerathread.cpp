@@ -35,7 +35,7 @@ void cameraThread::run()
             rectangle(image, face, Scalar(255, 0, 0), 2);
         }
         if (cameraOpen) {
-            emit newImage(image, faces.size());
+            emit newImage(image);
         } else
             break;
         timer.start(30);

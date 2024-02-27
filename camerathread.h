@@ -15,7 +15,7 @@ protected:
     void run();
     // QMutex mutex;
 signals:
-    void newImage(cv::Mat img, int num);
+    void newImage(cv::Mat img);
 
 private:
     std::atomic<bool> cameraOpen = true;

@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include <QCloseEvent>
 #include <QMessageBox>
+
 using namespace cv;
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -20,14 +21,13 @@ MainWindow::~MainWindow()
         delete threadCamera;
         threadCamera = NULL;
     }
-    for (QLabel* label : uiLabels) {
+    for (myLabel* label : uiLabels) {
         delete label;
     }
     uiLabels.clear();
 }
-void MainWindow::do_newImage(Mat img, int num)
+void MainWindow::do_newImage(Mat img)
 {
-    personNum = num;
     matImage = img;
     if (isTakeImgShow)
         takeImgShow();
@@ -98,12 +98,9 @@ void MainWindow::on_pushButton_5_clicked()
         QMessageBox::warning(this, "input warning", "name is empty");
         return;
     }
-    if (personNum == 0) {
-        QMessageBox::warning(this, "iamge warning", "nothing,please try agian");
-        return;
-    }
     QImage image(matImage.data, matImage.cols, matImage.rows, matImage.step, QImage::Format_RGB888);
-    QLabel* label = new QLabel;
+    myLabel* label = new myLabel(labelNum++);
+    connect(label, &myLabel::actDeleteLabel, this, &MainWindow::deleteMyLabel);
     label->setFixedSize(260, 195);
     uiLabels.append(label);
     label->setPixmap(QPixmap::fromImage(image.rgbSwapped()));
@@ -126,7 +123,7 @@ void MainWindow::on_pushButton_6_clicked()
 {
     personNO_++;
     ui->lineEdit->setEnabled(true);
-    for (QLabel* label : uiLabels) {
+    for (myLabel* label : uiLabels) {
         delete label;
     }
     uiLabels.clear();
@@ -138,7 +135,7 @@ void MainWindow::on_pushButton_7_clicked()
     on_pushButton_2_clicked();
     ui->pushButton_3->setEnabled(true);
     ui->pushButton_7->setEnabled(false);
-    for (QLabel* label : uiLabels) {
+    for (myLabel* label : uiLabels) {
         delete label;
     }
     uiLabels.clear();
@@ -167,4 +164,10 @@ void MainWindow::on_pushButton_8_clicked()
     Names.clear();
     images.clear();
     trainLabels.clear();
+}
+void MainWindow::deleteMyLabel(int No_)
+{
+    qDebug() << No_;
+    myLabel* l = uiLabels[No_];
+    delete l;
 }

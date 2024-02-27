@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "camerathread.h"
+#include "mylabel.h"
 #include <QImage>
 #include <QLabel>
 #include <QMainWindow>
@@ -26,13 +27,14 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
-    void do_newImage(cv::Mat img, int num);
+    void do_newImage(cv::Mat img);
     void on_pushButton_5_clicked();
     void on_pushButton_6_clicked();
     void on_pushButton_7_clicked();
     void on_pushButton_4_clicked();
 
     void on_pushButton_8_clicked();
+    void deleteMyLabel(int No_);
 
 private:
     Ui::MainWindow* ui;
@@ -40,9 +42,9 @@ private:
     std::vector<cv::Mat> images;
     std::vector<int> trainLabels;
     cv::Mat matImage;
-    QVector<QLabel*> uiLabels;
+    QVector<myLabel*> uiLabels;
     int personNO_ = 1;
-    int personNum = 0;
+    int labelNum = 0;
     std::map<int, std::string> Names;
     cv::Ptr<cv::face::LBPHFaceRecognizer> recognizer;
     bool isTakeImgShow = true;
